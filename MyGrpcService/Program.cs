@@ -19,6 +19,10 @@ builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1",
         new Microsoft.OpenApi.Models.OpenApiInfo { Title = "gRPC Api via transcoding", Version = "v1" });
+
+    var filePath = Path.Combine(System.AppContext.BaseDirectory, "MyGrpcService.xml");
+    c.IncludeXmlComments(filePath);
+    c.IncludeGrpcXmlComments(filePath, includeControllerXmlComments: true);
 });
 var app = builder.Build();
 

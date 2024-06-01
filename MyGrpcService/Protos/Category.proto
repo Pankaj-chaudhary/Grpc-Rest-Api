@@ -4,7 +4,6 @@ option csharp_namespace = "CategoryServiceGrpc";
 import "google/api/annotations.proto";
 service Categories{
  // Create category
- // rpc CreateCategory (CreateCategoryRequest) returns (CreateCategoryResponse){}
   rpc CreateCategory (CreateCategoryRequest) returns (CreateCategoryResponse){
   option (google.api.http) = {
    post : "/api/Category",
@@ -13,7 +12,6 @@ service Categories{
  }
 
  // Edit category
- // rpc EditeCategory (EditCategoryRequest) returns (EditCategoryResponse){}
  rpc EditeCategory (EditCategoryRequest) returns (EditCategoryResponse){
   option (google.api.http) = {
    put : "/api/Category",
@@ -22,7 +20,6 @@ service Categories{
  }
 
  // List of All Categories
- // rpc ListCategories(GetAllCategoriesRequest) returns (GetAllCategoriesResponse){}
   rpc ListCategories(GetAllCategoriesRequest) returns (GetAllCategoriesResponse){
   option (google.api.http) ={
    get : "/api/category"
@@ -30,7 +27,6 @@ service Categories{
  }
  
  // Get a category based on the id
- // rpc GetCategoryById(GetCategoryRequest) returns (GetCategoryResponse){}
   rpc GetCategoryById(GetCategoryRequest) returns (GetCategoryResponse){
   option (google.api.http) ={
    get : "/api/category/{id}"
@@ -38,7 +34,6 @@ service Categories{
  }
 
  // Delete category
- // rpc DeleteCategory(DeleteCategoryRequest) returns (DeleteCategoryResponse){}
  rpc DeleteCategory(DeleteCategoryRequest) returns (DeleteCategoryResponse){
   option (google.api.http) = {
    delete : "/api/category/{id}"
@@ -50,12 +45,16 @@ service Categories{
 
 // Create category
 message CreateCategoryRequest{
+// Category Name
  string name = 1;
+ // Is Category Enabled
  bool enable = 2;
 }
 
 message CreateCategoryResponse{
+// Id of the category
  string id = 1;
+// Name of the category
  string name = 2;
  bool enable = 3;
  string created_at = 4;
